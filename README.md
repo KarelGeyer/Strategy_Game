@@ -31,12 +31,13 @@ I am also considering implementing mechanics such as Exploration, Enemy atacks a
 
 ## How to contribute
 
-1. Clone the repository, most of what you need will be downloaded, though ofc as Github has a 100MB (or so) file size gap
+1. Clone the repository, most of what you need will be downloaded, though ofc as Github has a 100MB (or so) file size gap, packages are not part of the repozitory and have to be downloaded (currently around 2GB+).
 2. Download unity manage [here](https://unity.com/download).
 3. You will need a Unity v. 2022.3.5f1 or higher (probably better if you just get this one as I am too lazy to keep track of asset store packages compatibilities).
 4. Thx to the Github gap (and due to some packages actually not being open source), you will have to install them one by one - list is provided further in the file.
-5. Generally it does not matter which IDE you use, Microsoft's Visual Studio (no, not code, just Visual Studio) seems to be the best match, though other IDE's from Jet Brains or Monodevelop are afaik also very good and provide good support.
-6. Then just press play and you are ready to go (it everything works as it supposed to, if not, just let me know and we will make it work!)
+5. After each of the packages is instaled, either ignore them or put them in already ignored directory `/Assets/Packages`.
+6. Generally it does not matter which IDE you use, Microsoft's Visual Studio (no, not code, just Visual Studio) seems to be the best match, though other IDE's from Jet Brains or Monodevelop are afaik also very good and provide good support.
+7. Then just press play and you are ready to go (it everything works as it supposed to, if not, just let me know and we will make it work!).
 
 ## What to work on
 
@@ -53,13 +54,14 @@ Structure of the code is very easy to understand, as I am not from a game indust
 
 Here is a list of packages that have to be donwloaded:
 
-- [Man NPC](https://assetstore.unity.com/packages/3d/characters/humanoids/humans/beard-man-in-jeans-and-shirt-221725#content)
-- [Woman Npc](https://assetstore.unity.com/packages/3d/characters/humanoids/humans/woman-with-cap-and-jacket-221114)
-- [GUI Borders, Sections, Buttons and Tabs](https://assetstore.unity.com/packages/2d/gui/icons/gui-parts-159068)
-- [GUI Icons Pack](https://assetstore.unity.com/packages/2d/gui/icons/modern-rpg-free-icons-pack-264706)
-- [Rocks Prefabs](https://assetstore.unity.com/packages/3d/props/exterior/rock-and-boulders-2-6947)
-- [Buildings and other objects](https://assetstore.unity.com/packages/3d/environments/industrial/rpg-fps-game-assets-for-pc-mobile-industrial-set-v2-0-86679#content)
-- [Snow FX](https://assetstore.unity.com/packages/vfx/fx-snow-240358#content)
-- [Buildings](https://assetstore.unity.com/packages/3d/environments/urban/uk-terraced-houses-pack-free-63481)
-- [Buildings](https://assetstore.unity.com/packages/3d/props/exterior/urban-building-130318)
-- [Snow FX, Textures, Meshes, Audio](https://assetstore.unity.com/packages/3d/environments/landscapes/winter-zone-mini-107583)
+- [Agarkova_CG/Bread_man](https://assetstore.unity.com/packages/3d/characters/humanoids/humans/beard-man-in-jeans-and-shirt-221725#content)
+- [Agarkova_CG/Woman_with_cap](https://assetstore.unity.com/packages/3d/characters/humanoids/humans/woman-with-cap-and-jacket-221114)
+- [GUI_parts - some ui borders and icons](https://assetstore.unity.com/packages/2d/gui/icons/gui-parts-159068)
+- [Hipernt/Pine Pack - forest assets](https://assetstore.unity.com/packages/3d/vegetation/trees/realistic-pine-tree-pack-232166#content)
+- [Modern GDR - Free icons pack](https://assetstore.unity.com/packages/2d/gui/icons/modern-rpg-free-icons-pack-264706)
+- [Rocks and Boulders 2](https://assetstore.unity.com/packages/3d/props/exterior/rock-and-boulders-2-6947)
+- [RPG_FPS_game_assets_industrial - buildigns assets](https://assetstore.unity.com/packages/3d/environments/industrial/rpg-fps-game-assets-for-pc-mobile-industrial-set-v2-0-86679#content)
+- [SansalStudio/Snow FX - snow particales and materials](https://assetstore.unity.com/packages/vfx/fx-snow-240358#content)
+- [UK Terraced Houses FREE - Building assets](https://assetstore.unity.com/packages/3d/environments/urban/uk-terraced-houses-pack-free-63481)
+- [Urban_building](https://assetstore.unity.com/packages/3d/props/exterior/urban-building-130318)
+- [Winter Zone Mini 1.0 - Snow FX, Textures, Meshes, Audio](https://assetstore.unity.com/packages/3d/environments/landscapes/winter-zone-mini-107583)
