@@ -153,5 +153,5 @@ MonoBehaviour:
   m_interactionMaterial: {fileID: 2100000, guid: 6a06e82b8caa9584b82b1733e9fe4b4a, type: 2}
   m_assignedCitizens: []
   m_currentlyPresentCitizens: []
-  m_buildingUI: {fileID: 0}
+  m_UI: {fileID: 4877099304931944678, guid: 80ee0bb6e83b0314badedcfdf6101fe7, type: 3}
   m_npcManager: {fileID: 0}
