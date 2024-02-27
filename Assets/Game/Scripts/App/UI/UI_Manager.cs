@@ -11,14 +11,24 @@ public class UI_Manager : MonoBehaviour
 		get { return instance; }
 	}
 
+	private bool m_CanPlayerInteractWithUi = false;
+	public bool CanPlayerInteractWithUi
+	{
+		get { return m_CanPlayerInteractWithUi; }
+		set { m_CanPlayerInteractWithUi = value; }
+	}
+
 	[SerializeField]
-	private GameObject m_Canvas;
+	private GameObject m_canvas;
 
 	[SerializeField]
 	private MaterialDepositUi m_materialDepositUi;
 
 	[SerializeField]
 	private BuildingUI m_buildingUI;
+
+	[SerializeField]
+	private MaterialStorageUi m_materialStorageUI;
 
 	private void Awake()
 	{
@@ -44,5 +54,10 @@ public class UI_Manager : MonoBehaviour
 	public BuildingUI GetBuildingUI()
 	{
 		return m_buildingUI;
+	}
+
+	public MaterialStorageUi GetStorageUI()
+	{
+		return m_materialStorageUI;
 	}
 }

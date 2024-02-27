@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class MaterialDepositUi : UI_Base_Object, IUiPanel<MaterialDepositUiModel>
+public class MaterialDepositUi : UIInteractionBaseObject, IUiPanel<MaterialDepositUIModel>
 {
 	[SerializeField]
 	private TextMeshProUGUI m_type;
@@ -19,9 +19,9 @@ public class MaterialDepositUi : UI_Base_Object, IUiPanel<MaterialDepositUiModel
 	[SerializeField]
 	private MaterialDeposit m_currentMaterialDeposit;
 
-	public void DisplayUI(MaterialDepositUiModel data, MaterialDeposit deposit)
+	public void DisplayUI(MaterialDepositUIModel data, MaterialDeposit deposit)
 	{
-		if (GameManager.Instance.CanPlayerInteract)
+		if (UI_Manager.Instance.CanPlayerInteractWithUi)
 		{
 			gameObject.SetActive(true);
 			UpdateUI(data);
@@ -34,7 +34,7 @@ public class MaterialDepositUi : UI_Base_Object, IUiPanel<MaterialDepositUiModel
 		gameObject.SetActive(false);
 	}
 
-	public void UpdateUI(MaterialDepositUiModel model)
+	public void UpdateUI(MaterialDepositUIModel model)
 	{
 		m_type.text = Mappings.MapMaterialTypeToString(model.Type);
 		m_amount.text = model.Amount.ToString();

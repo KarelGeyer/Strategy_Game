@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class BuildingUI : UI_Base_Object, IBuildingUiPanel
+public class BuildingUI : UIInteractionBaseObject, IBuildingUiPanel
 {
 	[SerializeField]
 	private TextMeshProUGUI m_materialAmount;
+
+	[SerializeField]
+	private TextMeshProUGUI m_materialType;
 
 	[SerializeField]
 	private TextMeshProUGUI m_amountOfWorkers;
@@ -22,7 +25,7 @@ public class BuildingUI : UI_Base_Object, IBuildingUiPanel
 
 	public void DisplayUI(BuildingUIModel data, WorkBuilding building)
 	{
-		if (GameManager.Instance.CanPlayerInteract)
+		if (UI_Manager.Instance.CanPlayerInteractWithUi)
 		{
 			gameObject.SetActive(true);
 			UpdateUI(data);
