@@ -64,7 +64,6 @@ public class NPC : MonoBehaviour
 			gameObject.SetActive(true);
 
 		m_agent.destination = position;
-		print(m_agent.destination);
 	}
 
 	public void AssignWorkplace(Building building)
