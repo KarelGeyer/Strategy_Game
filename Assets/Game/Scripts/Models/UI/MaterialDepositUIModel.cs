@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MaterialDepositUiModel
+public class MaterialDepositUIModel
 {
 	public MaterialType Type { get; set; }
 
