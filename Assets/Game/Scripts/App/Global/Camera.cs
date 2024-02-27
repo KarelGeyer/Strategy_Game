@@ -29,7 +29,6 @@ public class Camera : MonoBehaviour
 		transform.position = new Vector3(transform.position.x, 40, transform.position.z);
 	}
 
-	// Update is called once per frame
 	private void Update()
 	{
 		MoveCameraObject();
@@ -68,13 +67,14 @@ public class Camera : MonoBehaviour
 	{
 		if (Input.GetMouseButton(1))
 		{
-			GameManager.Instance.SetCanInteract(false);
+			UI_Manager.Instance.CanPlayerInteractWithUi = false;
 			m_rotationY += Input.GetAxis("Mouse X") * 1000f * Time.deltaTime;
 			transform.localEulerAngles = new Vector3(transform.rotation.x, m_rotationY, transform.rotation.z);
 		}
-		else
+
+		if (Input.GetMouseButtonUp(1))
 		{
-			GameManager.Instance.SetCanInteract(true);
+			UI_Manager.Instance.CanPlayerInteractWithUi = true;
 		}
 	}
 

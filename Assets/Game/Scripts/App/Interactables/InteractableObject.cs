@@ -12,7 +12,7 @@ public class Interactable : MonoBehaviour
 
 	private void Update()
 	{
-		if (!GameManager.Instance.CanPlayerInteract && m_IsMarked)
+		if (!UI_Manager.Instance.CanPlayerInteractWithUi && m_IsMarked)
 		{
 			OnMouseExit();
 		}
@@ -20,13 +20,14 @@ public class Interactable : MonoBehaviour
 
 	private void OnMouseDown()
 	{
-		if (GameManager.Instance.CanPlayerInteract)
+		print(UI_Manager.Instance.CanPlayerInteractWithUi);
+		if (UI_Manager.Instance.CanPlayerInteractWithUi)
 			OnInteract();
 	}
 
 	private void OnMouseEnter()
 	{
-		if (!GameManager.Instance.CanPlayerInteract)
+		if (!UI_Manager.Instance.CanPlayerInteractWithUi)
 			return;
 
 		AddMeshToRenderer(transform);

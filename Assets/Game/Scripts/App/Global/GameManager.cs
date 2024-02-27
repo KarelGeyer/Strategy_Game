@@ -11,12 +11,6 @@ public class GameManager : MonoBehaviour
 		get { return instance; }
 	}
 
-	private bool m_CanPlayerInteract = false;
-	public bool CanPlayerInteract
-	{
-		get { return m_CanPlayerInteract; }
-	}
-
 	private void Awake()
 	{
 		ManageInstance();
@@ -43,11 +37,5 @@ public class GameManager : MonoBehaviour
 	public void ResumeGame()
 	{
 		Time.timeScale = 1f;
-	}
-
-	public void SetCanInteract(bool canInteract)
-	{
-		print(m_CanPlayerInteract);
-		m_CanPlayerInteract = canInteract;
 	}
 }

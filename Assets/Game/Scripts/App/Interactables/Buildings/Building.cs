@@ -13,15 +13,18 @@ public class Building : Interactable, IBuilding
 	protected List<NPC> m_currentlyPresentCitizens;
 
 	[SerializeField]
-	protected BuildingUI m_buildingUI;
+	protected GameObject m_UI;
 
 	[SerializeField]
 	protected NPCManager m_npcManager;
 
+	[SerializeField]
+	protected BuildingUI m_buildingUI;
+
 	void Start()
 	{
-		m_buildingUI = UI_Manager.Instance.GetBuildingUI();
 		m_npcManager = NPCManager.Instance;
+		m_buildingUI = UI_Manager.Instance.GetBuildingUI();
 	}
 
 	void OnCollisionEnter(Collision collision)

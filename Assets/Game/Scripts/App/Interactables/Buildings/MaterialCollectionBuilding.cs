@@ -7,12 +7,14 @@ public class MaterialCollectionBuilding : WorkBuilding, IMaterialCollectionBuild
 	[SerializeField]
 	private List<GameObject> m_materialDeposits;
 
-	private Materials m_materials;
-	private string m_collectionType = Constants.MATERIAL_TYPE_ROCK;
+	[SerializeField]
+	private MaterialType m_collectionType;
+
+	private MaterialsStorage m_materials;
 
 	private void Awake()
 	{
-		m_materials = GameObject.FindGameObjectWithTag(Constants.GAME_OBJECT_MATERIALS).GetComponent<Materials>();
+		m_materials = GameObject.FindGameObjectWithTag(Constants.GAME_OBJECT_MATERIALS).GetComponent<MaterialsStorage>();
 		AssignDeposits();
 	}
 
@@ -37,8 +39,7 @@ public class MaterialCollectionBuilding : WorkBuilding, IMaterialCollectionBuild
 
 			if (currentDepositAmount < totalStrength)
 			{
-				m_materials.AmountOfRock += currentDepositAmount;
-
+				m_materials.IncreaseMaterialAmount(m_collectionType, currentDepositAmount);
 				currentDeposit.GetComponent<MaterialDeposit>().ReduceDepositBy(currentDepositAmount);
 				m_materialDeposits.Remove(currentDeposit);
 				if (m_materialDeposits.Count == 0)
@@ -48,11 +49,9 @@ public class MaterialCollectionBuilding : WorkBuilding, IMaterialCollectionBuild
 			}
 			else
 			{
-				m_materials.AmountOfRock += totalStrength;
+				m_materials.IncreaseMaterialAmount(m_collectionType, totalStrength);
 				currentDeposit.GetComponent<MaterialDeposit>().ReduceDepositBy(totalStrength);
 			}
-
-			m_buildingUI.UpdateAmountOfMaterialText(GetTotalAmountOfDeposit());
 		}
 	}
 
@@ -61,7 +60,7 @@ public class MaterialCollectionBuilding : WorkBuilding, IMaterialCollectionBuild
 		Collider[] hitColliders = Physics.OverlapSphere(transform.position, Constants.BUILDING_MATERIAL_COLLECTION_RADIUS, 1 << 6);
 		foreach (Collider collider in hitColliders)
 		{
-			if (collider.gameObject.tag.Equals(m_collectionType))
+			if (collider.gameObject.tag == m_collectionType.ToString())
 			{
 				GameObject depositObject = collider.gameObject;
 				m_materialDeposits.Add(depositObject);

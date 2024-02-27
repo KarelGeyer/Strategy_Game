@@ -8,6 +8,9 @@ public class MaterialDeposit : Interactable
 	[SerializeField]
 	MaterialDepositUi m_depositUi;
 
+	[SerializeField]
+	MaterialType m_type;
+
 	private int m_deposit;
 	private MaterialSize m_size;
 
@@ -22,8 +25,6 @@ public class MaterialDeposit : Interactable
 	{
 		m_size = Mappings.MapMaterialNameToSize(transform.name);
 		m_deposit = Mappings.MapMaterialSizeToDepositAmount(m_size);
-
-		print(m_deposit);
 	}
 
 	private void Start()
@@ -39,10 +40,10 @@ public class MaterialDeposit : Interactable
 	#region Private
 	private void DisplayUi()
 	{
-		MaterialDepositUiModel model =
+		MaterialDepositUIModel model =
 			new()
 			{
-				Type = MaterialType.Rock,
+				Type = m_type,
 				Amount = m_deposit,
 				Description = "Description",
 			};
@@ -62,6 +63,7 @@ public class MaterialDeposit : Interactable
 		m_deposit -= amountToReduce;
 		if (m_deposit <= 0)
 			DepleteMaterial();
+		print(m_deposit);
 	}
 	#endregion
 }
