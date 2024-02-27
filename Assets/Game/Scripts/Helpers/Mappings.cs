@@ -8,17 +8,20 @@ public static class Mappings
 		string materialType = string.Empty;
 		switch (type)
 		{
-			case MaterialType.Steel:
-				materialType = Constants.MATERIAL_TYPE_STEEL;
+			case MaterialType.Silver:
+				materialType = Constants.MATERIAL_TYPE_SILVER;
 				break;
 			case MaterialType.Wood:
 				materialType = Constants.MATERIAL_TYPE_WOOD;
 				break;
-			case MaterialType.Coal:
-				materialType = Constants.MATERIAL_TYPE_COAL;
+			case MaterialType.Food:
+				materialType = Constants.MATERIAL_TYPE_FOOD;
 				break;
 			case MaterialType.Rock:
 				materialType = Constants.MATERIAL_TYPE_ROCK;
+				break;
+			case MaterialType.Gems:
+				materialType = Constants.MATERIAL_TYPE_GEMS;
 				break;
 		}
 		return materialType;

@@ -5,18 +5,19 @@ using UnityEngine;
 public static class Constants
 {
 	#region MATERIALS
-	public const string MATERIAL_TYPE_STEEL = "Steel";
+	public const string MATERIAL_TYPE_SILVER = "Silver";
 	public const string MATERIAL_TYPE_WOOD = "Wood";
-	public const string MATERIAL_TYPE_COAL = "Coal";
+	public const string MATERIAL_TYPE_GEMS = "Gems";
 	public const string MATERIAL_TYPE_ROCK = "Rock";
+	public const string MATERIAL_TYPE_FOOD = "Food";
 
 	public const string MATERIAL_SIZE_LARGE = "large";
 	public const string MATERIAL_SIZE_MEDIUM = "medium";
 	public const string MATERIAL_SIZE_SMALL = "small";
 
-	public const int MATERIAL_AMOUNT_LARGE = 500;
-	public const int MATERIAL_AMOUNT_MEDIUM = 200;
-	public const int MATERIAL_AMOUNT_SMALL = 80;
+	public const int MATERIAL_AMOUNT_LARGE = 50;
+	public const int MATERIAL_AMOUNT_MEDIUM = 20;
+	public const int MATERIAL_AMOUNT_SMALL = 10;
 	#endregion
 
 	#region BUILDINGS
