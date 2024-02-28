@@ -13,4 +13,9 @@ public class UIInteractionBaseObject : MonoBehaviour
 	{
 		UI_Manager.Instance.CanPlayerInteractWithUi = true;
 	}
+
+	public virtual void CloseUI()
+	{
+		gameObject.SetActive(false);
+	}
 }

@@ -11,7 +11,7 @@ public class UI_Manager : MonoBehaviour
 		get { return instance; }
 	}
 
-	private bool m_CanPlayerInteractWithUi = false;
+	private bool m_CanPlayerInteractWithUi = true;
 	public bool CanPlayerInteractWithUi
 	{
 		get { return m_CanPlayerInteractWithUi; }
@@ -29,6 +29,14 @@ public class UI_Manager : MonoBehaviour
 	[SerializeField]
 	[Tooltip("Displays information about a building that has been last clicked on")]
 	private BuildingUI m_buildingUI;
+
+	[SerializeField]
+	[Tooltip("Displays available building to build")]
+	private ConstructionUi m_constructionUI;
+
+	[SerializeField]
+	[Tooltip("Allows player to build or control politics")]
+	private ControlPanelUi m_controlPanelUI;
 
 	[SerializeField]
 	[Tooltip("Displays materials amount at the top of the screen")]
@@ -50,18 +58,13 @@ public class UI_Manager : MonoBehaviour
 			Destroy(gameObject);
 	}
 
-	public MaterialDepositUi GetMaterialDepositUi()
-	{
-		return m_materialDepositUi;
-	}
+	public MaterialDepositUi GetMaterialDepositUi() => m_materialDepositUi;
 
-	public BuildingUI GetBuildingUI()
-	{
-		return m_buildingUI;
-	}
+	public BuildingUI GetBuildingUI() => m_buildingUI;
 
-	public MaterialStorageUi GetStorageUI()
-	{
-		return m_materialStorageUI;
-	}
+	public MaterialStorageUi GetStorageUI() => m_materialStorageUI;
+
+	public ConstructionUi GetConstructionUI() => m_constructionUI;
+
+	public ControlPanelUi GetControlPanelUI() => m_controlPanelUI;
 }

@@ -39,11 +39,6 @@ public class BuildingUI : UIInteractionBaseObject, IBuildingUiPanel
 		}
 	}
 
-	public void CloseUI()
-	{
-		gameObject.SetActive(false);
-	}
-
 	public void UpdateUI(BuildingUIModel model)
 	{
 		m_materialAmount.text = model.AmountOfMaterial.ToString();

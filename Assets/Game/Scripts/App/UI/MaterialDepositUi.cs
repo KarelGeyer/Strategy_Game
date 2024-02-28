@@ -29,11 +29,6 @@ public class MaterialDepositUi : UIInteractionBaseObject, IUiPanel<MaterialDepos
 		}
 	}
 
-	public void CloseUI()
-	{
-		gameObject.SetActive(false);
-	}
-
 	public void UpdateUI(MaterialDepositUIModel model)
 	{
 		m_type.text = Mappings.MapMaterialTypeToString(model.Type);

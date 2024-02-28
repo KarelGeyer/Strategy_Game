@@ -22,6 +22,11 @@ public static class Constants
 
 	#region BUILDINGS
 	public const float BUILDING_MATERIAL_COLLECTION_RADIUS = 40f;
+
+	public const string CONSTRUCTION_UI_SECTION_RESOURCES = "Resources";
+	public const string CONSTRUCTION_UI_SECTION_FREE_TIME = "Free_Time";
+	public const string CONSTRUCTION_UI_SECTION_SUPPORT = "Support";
+
 	#endregion
 
 	#region NPCS

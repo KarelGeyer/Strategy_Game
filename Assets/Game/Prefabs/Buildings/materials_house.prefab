@@ -25,11 +25,11 @@ Transform:
   m_GameObject: {fileID: 3110831056198338072}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.81819, y: -4.6799164, z: 0.4166789}
+  m_LocalPosition: {x: 8.819824, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1032888237041313268}
+  m_Father: {fileID: 679924950600213014}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5003739695167704381
 GameObject:
@@ -63,6 +63,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1032888237041313268}
+  - {fileID: 1789926612112361841}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6740463254375918495
@@ -101,9 +102,10 @@ MonoBehaviour:
   m_interactionMaterial: {fileID: 2100000, guid: 6a06e82b8caa9584b82b1733e9fe4b4a, type: 2}
   m_assignedCitizens: []
   m_currentlyPresentCitizens: []
-  m_UI: {fileID: 4877099304931944678, guid: 80ee0bb6e83b0314badedcfdf6101fe7, type: 3}
   m_npcManager: {fileID: 0}
+  m_buildingUI: {fileID: 0}
   m_materialDeposits: []
+  m_collectionType: 0
 --- !u!1 &5861935917335050641
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,8 +137,7 @@ Transform:
   m_LocalPosition: {x: 0.0016343594, y: 4.6799164, z: -0.4166789}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1789926612112361841}
+  m_Children: []
   m_Father: {fileID: 679924950600213014}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2368964507845809423
