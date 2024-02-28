@@ -5,7 +5,7 @@ using UnityEngine;
 public class MaterialsStorage : MonoBehaviour
 {
 	[SerializeField]
-	private MaterialStorageUi m_materialStorage;
+	private MaterialStorageUi m_materialStorageUi;
 
 	private int m_amountOfRock = 0;
 	private int m_amountOfWood = 0;
@@ -40,9 +40,18 @@ public class MaterialsStorage : MonoBehaviour
 
 	private void Start()
 	{
-		m_materialStorage = UI_Manager.Instance.GetStorageUI();
+		m_materialStorageUi = UI_Manager.Instance.GetStorageUI();
 	}
 
+	/// <summary>
+	/// Based on material provided, it will update appropriate material amount by the provided value amount.
+	/// Also responsible for calling the UI update:
+	/// <list type="bullet">
+	/// <item><see cref="MaterialStorageUi.UpdateUI(MaterialStorageUIModel)"/></item>
+	/// </list>
+	/// </summary>
+	/// <param name="material"></param>
+	/// <param name="value"></param>
 	public void IncreaseMaterialAmount(MaterialType material, int value)
 	{
 		int totalMaterialValue = 0;
@@ -75,6 +84,6 @@ public class MaterialsStorage : MonoBehaviour
 		}
 
 		MaterialStorageUIModel materialStModel = new() { MaterialType = material, Value = totalMaterialValue, };
-		m_materialStorage.UpdateUI(materialStModel);
+		m_materialStorageUi.UpdateUI(materialStModel);
 	}
 }

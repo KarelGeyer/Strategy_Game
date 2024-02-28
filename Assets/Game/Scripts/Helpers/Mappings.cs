@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public static class Mappings
 {
+	/// <param name="type"><see cref="MaterialType"/></param>
+	/// <returns>string representation of a <see cref="MaterialType"/> enum</returns>
 	public static string MapMaterialTypeToString(MaterialType type)
 	{
 		string materialType = string.Empty;
@@ -24,9 +26,12 @@ public static class Mappings
 				materialType = Constants.MATERIAL_TYPE_GEMS;
 				break;
 		}
+
 		return materialType;
 	}
 
+	/// <param name="name"> Material deposit game object name</param>
+	/// <returns><see cref="MaterialSize"/> based on object name provided as an argument</returns>
 	public static MaterialSize MapMaterialNameToSize(string name)
 	{
 		MaterialSize size = new MaterialSize();
@@ -41,6 +46,8 @@ public static class Mappings
 		return size;
 	}
 
+	/// <param name="size">Size of material</param>
+	/// <returns>total deposit amount based on <see cref="MaterialSize"/> provided</returns>
 	public static int MapMaterialSizeToDepositAmount(MaterialSize size)
 	{
 		int amount = 0;

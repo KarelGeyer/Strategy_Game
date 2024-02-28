@@ -63,7 +63,6 @@ public class MaterialDeposit : Interactable
 		m_deposit -= amountToReduce;
 		if (m_deposit <= 0)
 			DepleteMaterial();
-		print(m_deposit);
 	}
 	#endregion
 }

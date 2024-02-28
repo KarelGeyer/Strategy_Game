@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class WorkBuilding : Building, IWorkBuilding
 {
+	/// <summary>
+	/// Corresponds to <see cref="Building.m_assignedCitizens"/>, only renamed to make more sence in this context
+	/// </summary>
 	protected List<NPC> Employees
 	{
 		get { return m_assignedCitizens; }
 	}
+
+	/// <summary>
+	/// Corresponds to <see cref="Building.m_currentlyPresentCitizens"/>, only renamed to make more sence in this context
+	/// </summary>
 	protected List<NPC> CurentlyWorkingEmployees
 	{
 		get { return m_currentlyPresentCitizens; }
@@ -16,6 +23,7 @@ public class WorkBuilding : Building, IWorkBuilding
 	protected override void DisplayUI() { }
 
 	#region PUBLIC
+
 	public void AskForWorker()
 	{
 		m_npcManager.AskForWorker(this);
@@ -41,9 +49,12 @@ public class WorkBuilding : Building, IWorkBuilding
 		if (isEmployeeInBuilding)
 		{
 			CurentlyWorkingEmployees.Remove(citizen);
-			var leavingPosition = transform.Find(Constants.GAME_OBJECT_BUILDING_LEAVING_SPOT);
+			Transform leavingPosition = transform.Find(Constants.GAME_OBJECT_BUILDING_LEAVING_SPOT);
 
-			citizen.transform.position = leavingPosition.position;
+			if (leavingPosition != null)
+			{
+				citizen.transform.position = leavingPosition.position;
+			}
 		}
 
 		Employees.Remove(citizen);

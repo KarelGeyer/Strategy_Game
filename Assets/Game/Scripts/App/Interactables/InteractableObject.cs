@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public class Interactable : MonoBehaviour, IIntractableObject
 {
 	[SerializeField]
+	[Tooltip("Material used as an interaction overlay over default objects default material")]
 	private Material m_interactionMaterial;
 
 	private bool m_IsMarked;
@@ -52,6 +53,10 @@ public class Interactable : MonoBehaviour
 		m_IsMarked = false;
 	}
 
+	/// <summary>
+	/// Adds interactable mesh to mesh renderer list of meshes to create interaction layer
+	/// </summary>
+	/// <param name="interactableObject"><see cref="this"/></param>
 	private void AddMeshToRenderer(Transform interactableObject)
 	{
 		MeshRenderer renderer = interactableObject.GetComponent<MeshRenderer>();
@@ -64,6 +69,10 @@ public class Interactable : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Oposite of <see cref="AddMeshToRenderer"/>
+	/// </summary>
+	/// <param name="interactableObject"><see cref="this"/></param>
 	private void RemoveMeshFromRenderer(Transform interactableObject)
 	{
 		MeshRenderer renderer = interactableObject.GetComponent<MeshRenderer>();

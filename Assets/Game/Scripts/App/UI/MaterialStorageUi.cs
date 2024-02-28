@@ -23,6 +23,10 @@ public class MaterialStorageUi : MonoBehaviour, IUiPanel<MaterialStorageUIModel>
 
 	public void CloseUI() { }
 
+	/// <summary>
+	/// Updates respective text mesh based on <see cref="MaterialType"/> provided.
+	/// </summary>
+	/// <param name="model"></param>
 	public void UpdateUI(MaterialStorageUIModel model)
 	{
 		switch (model.MaterialType)

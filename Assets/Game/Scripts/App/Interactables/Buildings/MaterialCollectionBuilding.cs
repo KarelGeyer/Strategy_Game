@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class MaterialCollectionBuilding : WorkBuilding, IMaterialCollectionBuilding
 {
+	[Header("Materials")]
 	[SerializeField]
+	[Tooltip("List of all resources assigned to the building")]
 	private List<GameObject> m_materialDeposits;
 
 	[SerializeField]
@@ -28,6 +30,17 @@ public class MaterialCollectionBuilding : WorkBuilding, IMaterialCollectionBuild
 		DisplayUI();
 	}
 
+	/// <summary>
+	/// Method responsible for depleting materials assigned to the building.
+	/// In order to mine, bulding needs NPC's adding total strength to it.
+	/// If no material deposits are around the building, it serves no purpose.
+	/// Methods calls:
+	/// <list type="bullet">
+	/// <item><see cref="Building.GetTotalStrength"/></item>
+	/// <item><see cref="MaterialsStorage.IncreaseMaterialAmount(MaterialType, int)"/></item>
+	/// <item><see cref="MaterialDeposit.ReduceDepositBy(int)"/></item>
+	/// </list>
+	/// </summary>
 	private void MineMaterial()
 	{
 		if (CurentlyWorkingEmployees.Count > 0 && m_materialDeposits.Count > 0)
@@ -55,6 +68,9 @@ public class MaterialCollectionBuilding : WorkBuilding, IMaterialCollectionBuild
 		}
 	}
 
+	/// <summary>
+	/// Assignes deposits found around the building in given radious when building is spawned.
+	/// </summary>
 	private void AssignDeposits()
 	{
 		Collider[] hitColliders = Physics.OverlapSphere(transform.position, Constants.BUILDING_MATERIAL_COLLECTION_RADIUS, 1 << 6);

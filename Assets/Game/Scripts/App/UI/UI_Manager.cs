@@ -19,15 +19,19 @@ public class UI_Manager : MonoBehaviour
 	}
 
 	[SerializeField]
+	[Tooltip("All UI is drawn on this element")]
 	private GameObject m_canvas;
 
 	[SerializeField]
+	[Tooltip("Displays information about a material deposit that has been last clicked on")]
 	private MaterialDepositUi m_materialDepositUi;
 
 	[SerializeField]
+	[Tooltip("Displays information about a building that has been last clicked on")]
 	private BuildingUI m_buildingUI;
 
 	[SerializeField]
+	[Tooltip("Displays materials amount at the top of the screen")]
 	private MaterialStorageUi m_materialStorageUI;
 
 	private void Awake()

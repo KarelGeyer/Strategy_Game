@@ -7,18 +7,23 @@ using UnityEngineInternal;
 public class Camera : MonoBehaviour
 {
 	[SerializeField]
+	[Range(25, 30)]
 	private float m_speed = 25f;
 
 	[SerializeField]
+	[Range(50, 70)]
 	private float m_sprintSpeed = 60f;
 
 	[SerializeField]
+	[Range(300, 350)]
 	private float m_scrollSpeed = 300f;
 
 	[SerializeField]
+	[Range(80, 150)]
 	private float m_cameraMaxHeight = 80f;
 
 	[SerializeField]
+	[Range(25, 35)]
 	private float m_cameraMinHeight = 30f;
 
 	private float m_rotationY = 0f;
@@ -37,6 +42,9 @@ public class Camera : MonoBehaviour
 		IncreaseSpeed();
 	}
 
+	/// <summary>
+	/// Moves camera holder on the horizontal and vertical axis
+	/// </summary>
 	private void MoveCameraObject()
 	{
 		float h_axis = Input.GetAxis(Constants.AXIS_HORIZONTAL);
@@ -48,6 +56,9 @@ public class Camera : MonoBehaviour
 		transform.position += move;
 	}
 
+	/// <summary>
+	/// Moves camera holder on the depth axis
+	/// </summary>
 	private void ZoomCamera()
 	{
 		float mouseWheel = Input.mouseScrollDelta.y;
@@ -63,6 +74,9 @@ public class Camera : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Allows to rotate camera and ban interaction for as long as camera is being rotated
+	/// </summary>
 	private void RotateCamera()
 	{
 		if (Input.GetMouseButton(1))
@@ -78,6 +92,9 @@ public class Camera : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Increases the speed for movement on horizontal and vertical axis when shift is held down
+	/// </summary>
 	private void IncreaseSpeed()
 	{
 		if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
