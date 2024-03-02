@@ -26,7 +26,6 @@ public static class Constants
 	public const string CONSTRUCTION_UI_SECTION_RESOURCES = "Resources";
 	public const string CONSTRUCTION_UI_SECTION_FREE_TIME = "Free_Time";
 	public const string CONSTRUCTION_UI_SECTION_SUPPORT = "Support";
-
 	#endregion
 
 	#region NPCS
@@ -35,8 +34,12 @@ public static class Constants
 	#endregion
 
 	#region GAME_OBJECTS_NAMES
+	public const string GAME_OBJECT_TERRAIN = "Terrain";
 	public const string GAME_OBJECT_BUILDING_LEAVING_SPOT = "Leaving_Spot";
 	public const string GAME_OBJECT_MATERIALS = "Materials";
+	public const string GAME_OBJECT_MATERIALS_HOUSE = "materials_house";
+	public const string GAME_OBJECT_CONSTRUCTION = "Construction";
+	public const string GAME_OBJECT_CONSTRUCTION_CLONE = "Construction(Clone)";
 	#endregion
 
 	#region GAME_SETTINGS
@@ -49,5 +52,10 @@ public static class Constants
 	public const string AXIS_VERTICAL = "Vertical";
 
 	public const string INTERACTION = "Interaction";
+	#endregion
+
+	#region OTHER
+	public const string ERROR_MESH_MATERIAL = "Error_Material";
+	public const string BUILD_MESH_MATERIAL = "Build_Material";
 	#endregion
 }

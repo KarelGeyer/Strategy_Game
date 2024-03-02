@@ -66,4 +66,30 @@ public static class Mappings
 
 		return amount;
 	}
+
+	public static Dictionary<string, int> GetBuildingsCost(List<int> costs)
+	{
+		Dictionary<string, int> buildingCost = new Dictionary<string, int>();
+
+		for (int i = 0; i < costs.Count; i++)
+		{
+			switch (costs[i])
+			{
+				case 0:
+					buildingCost.Add("Rock", costs[i]);
+					break;
+				case 1:
+					buildingCost.Add("Wood", costs[i]);
+					break;
+				case 2:
+					buildingCost.Add("Steel", costs[i]);
+					break;
+				case 3:
+					buildingCost.Add("Diamond", costs[i]);
+					break;
+			}
+		}
+
+		return buildingCost;
+	}
 }

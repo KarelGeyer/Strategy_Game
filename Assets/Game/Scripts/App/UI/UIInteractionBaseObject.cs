@@ -6,7 +6,10 @@ public class UIInteractionBaseObject : MonoBehaviour
 {
 	private void OnEnable()
 	{
-		UI_Manager.Instance.CanPlayerInteractWithUi = false;
+		if (UI_Manager.Instance)
+		{
+			UI_Manager.Instance.CanPlayerInteractWithUi = false;
+		}
 	}
 
 	private void OnDisable()

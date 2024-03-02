@@ -58,6 +58,22 @@ public class UI_Manager : MonoBehaviour
 			Destroy(gameObject);
 	}
 
+	/// <summary>
+	/// Custom on mouse enter event added as Event trigger to the UI in Unity Editor
+	/// </summary>
+	public void OnMouseEnterEvent()
+	{
+		UI_Manager.Instance.CanPlayerInteractWithUi = false;
+	}
+
+	/// <summary>
+	/// Custom on mouse exit event added as Event trigger to the UI in Unity Editor
+	/// </summary>
+	public void OnMouseExitEvent()
+	{
+		UI_Manager.Instance.CanPlayerInteractWithUi = true;
+	}
+
 	public MaterialDepositUi GetMaterialDepositUi() => m_materialDepositUi;
 
 	public BuildingUI GetBuildingUI() => m_buildingUI;

@@ -7,6 +7,11 @@ public class ConstructionUi : UIInteractionBaseObject
 	[SerializeField]
 	List<GameObject> constructionSections;
 
+	[SerializeField]
+	GameObject newObject;
+
+	public LayerMask layersToHit;
+
 	private void Start()
 	{
 		constructionSections[0].SetActive(true);
@@ -41,5 +46,18 @@ public class ConstructionUi : UIInteractionBaseObject
 	public GameObject FindSection(string soughtSection)
 	{
 		return constructionSections.Find(section => section.name.Equals(soughtSection));
+	}
+
+	public void SpawnBuilding(GameObject gameObject)
+	{
+		Building building = gameObject.GetComponent<Building>();
+		if (building != null)
+		{
+			GameObject construction = new GameObject(Constants.GAME_OBJECT_CONSTRUCTION);
+			ConstructionSpawn constructionSpawn = construction.AddComponent<ConstructionSpawn>();
+			constructionSpawn.SetBuilding(building);
+			Instantiate(construction);
+			base.CloseUI();
+		}
 	}
 }

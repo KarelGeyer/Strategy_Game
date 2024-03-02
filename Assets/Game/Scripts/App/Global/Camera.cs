@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngineInternal;
 
-public class Camera : MonoBehaviour
+public class MainCamera : MonoBehaviour
 {
 	[SerializeField]
 	[Range(25, 30)]

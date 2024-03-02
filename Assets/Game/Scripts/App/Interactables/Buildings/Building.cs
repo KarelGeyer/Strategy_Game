@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class Building : Interactable, IBuilding
 {
+	[SerializeField]
+	private List<int> m_costToBuild;
+
 	[Header("NPC's")]
 	[SerializeField]
 	[Tooltip("NPC's that are frequently visiting this building to work")]
@@ -21,6 +24,8 @@ public class Building : Interactable, IBuilding
 	[Header("UI")]
 	[SerializeField]
 	protected BuildingUI m_buildingUI;
+
+	private Dictionary<string, int> CostList => Mappings.GetBuildingsCost(m_costToBuild);
 
 	void Start()
 	{
@@ -81,6 +86,11 @@ public class Building : Interactable, IBuilding
 		}
 
 		return totalStrength;
+	}
+
+	public Dictionary<string, int> GetCostList()
+	{
+		return CostList;
 	}
 
 	/// <summary>
