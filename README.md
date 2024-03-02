@@ -65,3 +65,11 @@ Here is a list of packages that have to be donwloaded:
 - [UK Terraced Houses FREE - Building assets](https://assetstore.unity.com/packages/3d/environments/urban/uk-terraced-houses-pack-free-63481)
 - [Urban_building](https://assetstore.unity.com/packages/3d/props/exterior/urban-building-130318)
 - [Winter Zone Mini 1.0 - Snow FX, Textures, Meshes, Audio](https://assetstore.unity.com/packages/3d/environments/landscapes/winter-zone-mini-107583)
+
+## Known issues/bugs
+
+1. Construction button triggers twice:
+   When Construction button for any build is being pressed, it creates two instances of ConstructionSpawn resuting in the need to Destroy its clone as well.
+   This object destruction happens in the Construct Method of ConstructionSpawn class -> `/Assets/Game/Scripts/App/Interactables/Buildings/ConstructionSpawn.cs`, line 24 and 70.
+   It does not apear to affect the gameplay in any way as everything is being properly destroyed, but already the fact that two instances of something is being created while it
+   should only be one is playing on my nerves honestly.

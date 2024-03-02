@@ -12,8 +12,6 @@ public class ConstructionSpawn : MonoBehaviour
 
 	private bool m_canBuild;
 
-	private Dictionary<string, int> m_costList;
-
 	private void Update()
 	{
 		ChooseConstructionPlace();
@@ -33,6 +31,9 @@ public class ConstructionSpawn : MonoBehaviour
 		Construct();
 	}
 
+	/// <summary>
+	/// Attaches gameobject to the cursor and while doing so, forbids any interaction from happening and hides all the interactable UI.
+	/// </summary>
 	private void ChooseConstructionPlace()
 	{
 		UI_Manager.Instance.CanPlayerInteractWithUi = false;
@@ -60,10 +61,20 @@ public class ConstructionSpawn : MonoBehaviour
 		GetComponent<MeshRenderer>().material = m_buildMaterial;
 	}
 
+	/// <summary>
+	/// If building is allowed through <see cref="m_canBuild"/>, a new Building will be instantiated at a spot a mouse cursor is pointing to.
+	/// Method calls:
+	/// <list type="bullet">
+	/// <item><see cref="MaterialsStorage.SpendMaterialResources"/></item>
+	/// <item><see cref="UI_Manager.GetConstructionUI"/></item>
+	/// </list>
+	/// </summary>
 	private void Construct()
 	{
 		if (m_canBuild)
 		{
+			MaterialsStorage materialsStorage = GameObject.FindGameObjectWithTag(Constants.GAME_OBJECT_MATERIALS).GetComponent<MaterialsStorage>();
+			materialsStorage.SpendMaterialResources(m_SpawnObject.GetComponent<Building>().GetCostList());
 			Instantiate(m_SpawnObject);
 			Destroy(GameObject.Find(Constants.GAME_OBJECT_CONSTRUCTION_CLONE));
 			Destroy(this);
@@ -71,6 +82,10 @@ public class ConstructionSpawn : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// After instantiation of this component, this methods is responsible for adding all the neccessary components and data needed.
+	/// </summary>
+	/// <param name="newBuilding"></param>
 	public void SetBuilding(Building newBuilding)
 	{
 		MeshRenderer meshRenderer = gameObject.AddComponent<MeshRenderer>();
@@ -94,7 +109,6 @@ public class ConstructionSpawn : MonoBehaviour
 		}
 
 		body.freezeRotation = true;
-
 		m_SpawnObject = newBuilding.gameObject;
 	}
 }

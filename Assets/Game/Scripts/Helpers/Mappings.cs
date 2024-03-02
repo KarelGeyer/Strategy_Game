@@ -67,29 +67,36 @@ public static class Mappings
 		return amount;
 	}
 
-	public static Dictionary<string, int> GetBuildingsCost(List<int> costs)
+	/// <summary>
+	/// Responsible for assigned costs to a correct material and returning this data as a list
+	/// </summary>
+	/// <param name="costs"></param>
+	/// <returns>correctly paired costs with their respective materials</returns>
+	public static List<MaterialCost> GetBuildingsCost(List<int> costs)
 	{
-		Dictionary<string, int> buildingCost = new Dictionary<string, int>();
+		List<MaterialCost> costList = new List<MaterialCost>();
 
 		for (int i = 0; i < costs.Count; i++)
 		{
-			switch (costs[i])
+			MaterialCost cost = new() { Cost = costs[i] };
+			switch (i)
 			{
 				case 0:
-					buildingCost.Add("Rock", costs[i]);
+					cost.MaterialType = MaterialType.Wood;
 					break;
 				case 1:
-					buildingCost.Add("Wood", costs[i]);
+					cost.MaterialType = MaterialType.Rock;
 					break;
 				case 2:
-					buildingCost.Add("Steel", costs[i]);
+					cost.MaterialType = MaterialType.Silver;
 					break;
 				case 3:
-					buildingCost.Add("Diamond", costs[i]);
+					cost.MaterialType = MaterialType.Gems;
 					break;
 			}
+			costList.Add(cost);
 		}
 
-		return buildingCost;
+		return costList;
 	}
 }

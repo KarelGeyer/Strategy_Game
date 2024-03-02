@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Game.Scripts.Enums;
 using UnityEngine;
 
 public class MaterialCollectionBuilding : WorkBuilding, IMaterialCollectionBuilding
@@ -52,7 +53,7 @@ public class MaterialCollectionBuilding : WorkBuilding, IMaterialCollectionBuild
 
 			if (currentDepositAmount < totalStrength)
 			{
-				m_materials.IncreaseMaterialAmount(m_collectionType, currentDepositAmount);
+				m_materials.UpdateMaterialAmount(m_collectionType, currentDepositAmount, UpdateType.Increase);
 				currentDeposit.GetComponent<MaterialDeposit>().ReduceDepositBy(currentDepositAmount);
 				m_materialDeposits.Remove(currentDeposit);
 				if (m_materialDeposits.Count == 0)
@@ -62,7 +63,7 @@ public class MaterialCollectionBuilding : WorkBuilding, IMaterialCollectionBuild
 			}
 			else
 			{
-				m_materials.IncreaseMaterialAmount(m_collectionType, totalStrength);
+				m_materials.UpdateMaterialAmount(m_collectionType, totalStrength, UpdateType.Increase);
 				currentDeposit.GetComponent<MaterialDeposit>().ReduceDepositBy(totalStrength);
 			}
 		}

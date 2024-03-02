@@ -25,7 +25,7 @@ public class Building : Interactable, IBuilding
 	[SerializeField]
 	protected BuildingUI m_buildingUI;
 
-	private Dictionary<string, int> CostList => Mappings.GetBuildingsCost(m_costToBuild);
+	private List<MaterialCost> CostList => Mappings.GetBuildingsCost(m_costToBuild);
 
 	void Start()
 	{
@@ -88,7 +88,7 @@ public class Building : Interactable, IBuilding
 		return totalStrength;
 	}
 
-	public Dictionary<string, int> GetCostList()
+	public List<MaterialCost> GetCostList()
 	{
 		return CostList;
 	}

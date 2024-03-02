@@ -32,6 +32,10 @@ public class ConstructionUi : UIInteractionBaseObject
 		base.CloseUI();
 	}
 
+	/// <summary>
+	/// Display a specific child UI section
+	/// </summary>
+	/// <param name="section"></param>
 	public void DisplaySection(string section)
 	{
 		foreach (GameObject constructionSection in constructionSections)
@@ -43,21 +47,37 @@ public class ConstructionUi : UIInteractionBaseObject
 		FindSection(section).SetActive(true);
 	}
 
+	/// <summary>
+	/// Find a children represeting a section of buttons
+	/// </summary>
+	/// <param name="soughtSection"></param>
+	/// <returns>A child UI section</returns>
 	public GameObject FindSection(string soughtSection)
 	{
 		return constructionSections.Find(section => section.name.Equals(soughtSection));
 	}
 
+	/// <summary>
+	/// Responsible for creating a new <see cref="ConstructionSpawn"/> if there is enough materials for it
+	/// </summary>
+	/// <param name="gameObject">A building prefab, that will server as a template for <see cref="ConstructionSpawn"/></param>
 	public void SpawnBuilding(GameObject gameObject)
 	{
 		Building building = gameObject.GetComponent<Building>();
+
 		if (building != null)
 		{
-			GameObject construction = new GameObject(Constants.GAME_OBJECT_CONSTRUCTION);
-			ConstructionSpawn constructionSpawn = construction.AddComponent<ConstructionSpawn>();
-			constructionSpawn.SetBuilding(building);
-			Instantiate(construction);
-			base.CloseUI();
+			MaterialsStorage materialsStorage = GameObject.FindGameObjectWithTag(Constants.GAME_OBJECT_MATERIALS).GetComponent<MaterialsStorage>();
+			bool canBuild = materialsStorage.IsEnoughOnStock(building.GetCostList());
+
+			if (canBuild)
+			{
+				GameObject construction = new GameObject(Constants.GAME_OBJECT_CONSTRUCTION);
+				ConstructionSpawn constructionSpawn = construction.AddComponent<ConstructionSpawn>();
+				constructionSpawn.SetBuilding(building);
+				Instantiate(construction);
+				base.CloseUI();
+			}
 		}
 	}
 }
