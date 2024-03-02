@@ -120,10 +120,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interactionMaterial: {fileID: 2100000, guid: 6a06e82b8caa9584b82b1733e9fe4b4a, type: 2}
+  m_costToBuild: 1e000000190000000a00000000000000
   m_assignedCitizens: []
   m_currentlyPresentCitizens: []
-  m_UI: {fileID: 4877099304931944678, guid: 80ee0bb6e83b0314badedcfdf6101fe7, type: 3}
   m_npcManager: {fileID: 0}
+  m_buildingUI: {fileID: 0}
 --- !u!1 &9105511805345025766
 GameObject:
   m_ObjectHideFlags: 0

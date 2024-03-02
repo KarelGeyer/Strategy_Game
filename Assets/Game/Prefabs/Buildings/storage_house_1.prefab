@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 9082540441131240346}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 4981.0566, y: -0.00010108948, z: 6880.82}
+  m_LocalPosition: {x: 2795.2217, y: 0, z: 2879.1619}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -151,7 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_interactionMaterial: {fileID: 2100000, guid: 6a06e82b8caa9584b82b1733e9fe4b4a, type: 2}
+  m_costToBuild: 14000000140000000000000000000000
   m_assignedCitizens: []
   m_currentlyPresentCitizens: []
-  m_UI: {fileID: 4877099304931944678, guid: 80ee0bb6e83b0314badedcfdf6101fe7, type: 3}
   m_npcManager: {fileID: 0}
+  m_buildingUI: {fileID: 0}
